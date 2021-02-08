@@ -1,0 +1,17 @@
+module.exports = {
+  mongoDbUrl: "mongodb://localhost:27017",
+  dbName: "SimpleMarketAPI_User",
+  mongodbConnectionFailureLog: "Mongodb connection failed!",
+  mongodbConnectionSuccessLog: "Connected successfully to Mongodb!",
+  maxSocketConnections: 2,
+  JWTSecret: "BOWxzXZgfD7RyLdu4l5rzkhNVvyLx7aXaxrENwTORfCbInHmEcftlenUF4iBSDjL",
+  JWTExpiresIn: "1h",
+  Roles: { Manager: 0, User: 1 },
+  port: 3001,
+  userCollectionName: "users",
+  hashRounds: 8,
+  successCode: 200,
+  accessDeniedCode: 403,
+  failureCode: 503,
+  duplicateUserName: 501,
+};

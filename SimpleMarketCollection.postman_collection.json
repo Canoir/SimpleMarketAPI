@@ -1,0 +1,562 @@
+{
+	"info": {
+		"_postman_id": "f98f45c8-c82b-421e-b7bf-595aca055c8c",
+		"name": "SimpleMarketCollection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost/login",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userpass\":\"cm9vdDp0b29y\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Login users & managers : \r\n    -403 : Access Denied!\r\n    -503 : Server Failure!\r\n    -200 : Logged in!"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/user/add",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userpass\":\"dXNlcjoxMjM0\",\r\n    \"name\":\"Simple User\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/user/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"user",
+						"add"
+					]
+				},
+				"description": "Add new simple user:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -501 : Username Duplication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/user/addManager",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userpass\":\"YWRtaW46MTIzNA==\",\r\n    \"name\":\"Simple Manager\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"login"
+					]
+				},
+				"description": "Add new simple manager:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -501 : Username Duplication"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/productCategory/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc1ODY1OSwiZXhwIjoxNjEyNzYyMjU5fQ.ed4dv9W99zEIdc-3On_ETshaNXADQGzNud4Ow62v8gg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"New Category 2\",\r\n    \"description\" : \"This is just a new simple Category with count number 1!\",\r\n    \"parentCategoryId\":null\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/productCategory/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"productCategory",
+						"add"
+					]
+				},
+				"description": "Add new simple product Category:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -501 : Username Duplication\r\n    -403 : Access Denied!"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/product/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc1ODY1OSwiZXhwIjoxNjEyNzYyMjU5fQ.ed4dv9W99zEIdc-3On_ETshaNXADQGzNud4Ow62v8gg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "New Product 1",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is just a new simple Product with count number 1!",
+							"type": "text"
+						},
+						{
+							"key": "categoryId",
+							"value": "6020bf02375d0c2f5cd14410",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1200000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/amirv/Desktop/Pictures/AksNeveshte/V1/18.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/product/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"add"
+					]
+				},
+				"description": "Add new simple product:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -501 : Username Duplication\r\n    -403 : Access Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/product/update",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc1ODY1OSwiZXhwIjoxNjEyNzYyMjU5fQ.ed4dv9W99zEIdc-3On_ETshaNXADQGzNud4Ow62v8gg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "6020c5cdbca1b146dc6c20b4",
+							"type": "text"
+						},
+						{
+							"key": "title",
+							"value": "New Product 1.5",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": "This is just a new simple Product with count number 1.5!",
+							"type": "text"
+						},
+						{
+							"key": "categoryId",
+							"value": "6020bf02375d0c2f5cd14410",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "1400000",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/C:/Users/amirv/Desktop/Pictures/AksNeveshte/V1/index.jpg"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost/product/update",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"update"
+					]
+				},
+				"description": "Update simple Product:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/product/reportByCategory",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2MzU2OSwiZXhwIjoxNjEyNzY3MTY5fQ.WlxS4GM5ZoEGy8iSrhnQdsEPKvdDDbRImSl_YamZKuc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/product/reportByCategory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"reportByCategory"
+					]
+				},
+				"description": "Get Products Report by Category!"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/product/searchByTitle?title=New",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2MzU2OSwiZXhwIjoxNjEyNzY3MTY5fQ.WlxS4GM5ZoEGy8iSrhnQdsEPKvdDDbRImSl_YamZKuc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/product/searchByTitle?title=New",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"product",
+						"searchByTitle"
+					],
+					"query": [
+						{
+							"key": "title",
+							"value": "New"
+						}
+					]
+				},
+				"description": "Searching products via Title!"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/add",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjoxLCJfaWQiOiJ1c2VyIiwiaWF0IjoxNjEyNzY2MTUyLCJleHAiOjE2MTI3Njk3NTJ9.Ch9h-ztWuSSe2TZi59TnGvb-W8lM-J5cg7SuiDZPVr0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"address\":\"My Main Address\",\r\n    \"products\":[\r\n        \"6020c96581345238fcfeabf2\",\r\n        \"6020c5cdbca1b146dc6c20b4\"\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/order/add",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"add"
+					]
+				},
+				"description": "Add a new order from user:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/acceptOrder",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2NjYzOCwiZXhwIjoxNjEyNzcwMjM4fQ.aM3R6tzmGDdFjxZAnQ5a4Vbz65ygO6hguAtYY0VhKFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"6020dc1424418e335454732c\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/order/acceptOrder",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"acceptOrder"
+					]
+				},
+				"description": "Accept an order:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/reportAll",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2NjYzOCwiZXhwIjoxNjEyNzcwMjM4fQ.aM3R6tzmGDdFjxZAnQ5a4Vbz65ygO6hguAtYY0VhKFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/order/reportAll",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"reportAll"
+					]
+				},
+				"description": "Report all orders:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/reportByUserId?username=user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2NjYzOCwiZXhwIjoxNjEyNzcwMjM4fQ.aM3R6tzmGDdFjxZAnQ5a4Vbz65ygO6hguAtYY0VhKFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/order/reportByUserId?username=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"reportByUserId"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user"
+						}
+					]
+				},
+				"description": "Report order by UserId:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/reportByDate",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc2NjYzOCwiZXhwIjoxNjEyNzcwMjM4fQ.aM3R6tzmGDdFjxZAnQ5a4Vbz65ygO6hguAtYY0VhKFo",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"date\":\"2021/02/08\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost/order/reportByDate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"reportByDate"
+					]
+				},
+				"description": "Report orders by date:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost/order/userSumBuys?username=user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJhZG1pbiIsImlhdCI6MTYxMjc3MDY2OSwiZXhwIjoxNjEyNzc0MjY5fQ.ESaDMgKK72fOBd8bBb0wJP-NRSqjjuvlt3O4Yf4LuSg",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost/order/userSumBuys?username=user",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"path": [
+						"order",
+						"userSumBuys"
+					],
+					"query": [
+						{
+							"key": "username",
+							"value": "user"
+						}
+					]
+				},
+				"description": "Report user all buy prices:\r\n    -200 : OK\r\n    -503 : Server Error\r\n    -403 : Permission Denied"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyb2xlIjowLCJfaWQiOiJyb290IiwiaWF0IjoxNjEyNzUzMjYyLCJleHAiOjE2MTI3NTY4NjJ9.oMm0o9BYVgU6HwG5ToDDeJy0d_5yHt6GLrNGedRzdvs",
+				"type": "string"
+			}
+		]
+	}
+}
