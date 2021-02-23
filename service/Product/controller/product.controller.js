@@ -1,5 +1,4 @@
 const { ObjectId, ObjectID } = require("bson");
-const { type } = require("os");
 const config = require("../config/app.config");
 //
 exports.addProduct = async (socket, db) => {
